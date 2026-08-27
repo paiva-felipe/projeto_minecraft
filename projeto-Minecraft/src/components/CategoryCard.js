@@ -1,0 +1,1 @@
+//Card visual com imagem de fundo, título do estilo (ex: Moderno) e contador de modelos disponíveis.

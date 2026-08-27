@@ -1,0 +1,1 @@
+//Card com a foto da casa, nome, badge da categoria e botões de ação (Visualizar / Editar / Excluir).

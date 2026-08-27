@@ -1,0 +1,1 @@
+//Uma barra visual (0% a 100%) que calcula o progresso geral da construção com base nos blocos coletados.
