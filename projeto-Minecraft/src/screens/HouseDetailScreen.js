@@ -119,7 +119,7 @@ export default function HouseDetailScreen({ route, navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#121212', padding: 16 },
-  title: { fontSize: 24, fontWeight: 'bold', color: '#fff', marginBottom: 8 },
+  title: { fontFamily: 'MinecraftFont', fontSize: 24, fontWeight: 'bold', color: '#fff', marginBottom: 8 },
   subtitle: { fontSize: 16, color: '#ddd', marginTop: 16, marginBottom: 8 },
   emptyText: { color: '#aaa', textAlign: 'center', marginTop: 20 },
   listContainer: { paddingBottom: 16 },

@@ -83,7 +83,7 @@ export default function CategoryScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#121212', padding: 16 },
-  headerTitle: { fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 12 },
+  headerTitle: { fontFamily: 'MinecraftFont', fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 12 },
   listContainer: { paddingBottom: 16 },
   buttonContainer: { marginTop: 8 },
 });

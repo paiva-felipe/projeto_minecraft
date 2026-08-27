@@ -98,7 +98,7 @@ export default function HouseListScreen({ route, navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#121212', padding: 16 },
-  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#fff', marginBottom: 12 },
+  headerTitle: { fontFamily: 'MinecraftFont', fontSize: 20, fontWeight: 'bold', color: '#fff', marginBottom: 12 },
   emptyText: { color: '#aaa', textAlign: 'center', marginTop: 30, fontSize: 16 },
   listContainer: { paddingBottom: 16 },
 });
