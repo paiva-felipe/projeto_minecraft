@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   // Carrega a fonte salva em assets/fonts/
   const [fontsLoaded] = useFonts({
-    'MinecraftFont': require('./assets/fonts/Minecraftia.ttf'),
+  'MinecraftFont': require('./assets/fonts/Minecraft.ttf'),
   });
 
   // Aguarda o carregamento da fonte antes de renderizar a interface
