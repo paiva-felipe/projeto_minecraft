@@ -17,7 +17,7 @@ const LISTA_DE_BLOCOS = [
   { id: '12', name: 'Lã Branca', imageUri: 'https://i.pinimg.com/736x/21/7c/7c/217c7cd458af2f6219ff95835cac216e.jpg' },
   { id: '13', name: 'Areia', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
   { id: '14', name: 'Argila', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
-  { id: '14', name: 'Argila', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
+
 
 
 
