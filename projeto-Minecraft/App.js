@@ -10,6 +10,7 @@ import HouseDetailScreen from './src/screens/HouseDetailScreen';
 import AddEditHouseScreen from './src/screens/AddEditHouseScreen';
 import AddEditBlockScreen from './src/screens/AddEditBlockScreen';
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
