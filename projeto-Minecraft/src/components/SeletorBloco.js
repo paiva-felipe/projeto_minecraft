@@ -11,6 +11,33 @@ const LISTA_DE_BLOCOS = [
   { id: '6', name: 'Grama', imageUri: 'https://cdn.pixabay.com/photo/2016/11/11/14/49/minecraft-1816996_960_720.png' },
   { id: '7', name: 'Tijolo', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDjIB33yrshEExJ9bLBWoBkcs1gDjjoN9B4MA4Tzz_Ag&s' },
   { id: '8', name: 'Terra', imageUri: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Dirt_JE2_BE2.png/revision/latest?cb=20200309195232' },
+  { id: '9', name: 'Pedra Lisa', imageUri: 'https://i.pinimg.com/736x/8e/65/f2/8e65f2dcf5d8bcf051269f08509530cb.jpg' },
+  { id: '10', name: 'Folha', imageUri: 'https://i.pinimg.com/736x/26/e9/61/26e961a1a07a659437e4f05dcb72e55f.jpg' },
+  { id: '11', name: 'Glowstone', imageUri: 'https://i.pinimg.com/736x/ae/2b/b9/ae2bb93bd676aea0d6f9384fbdbeafd4.jpg' },
+  { id: '12', name: 'Lã Branca', imageUri: 'https://i.pinimg.com/736x/21/7c/7c/217c7cd458af2f6219ff95835cac216e.jpg' },
+  { id: '13', name: 'Areia', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
+  { id: '14', name: 'Argila', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
+  { id: '14', name: 'Argila', imageUri: 'https://i.pinimg.com/736x/9d/10/0d/9d100de75179e17d50c4950b03dc0dc3.jpg' },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 
 export default function SeletorBloco({ blocoSelecionado, onSelect }) {
