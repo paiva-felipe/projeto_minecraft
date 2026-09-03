@@ -1,4 +1,3 @@
-
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,7 +15,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   // Carrega a fonte salva em assets/fonts/
   const [fontsLoaded] = useFonts({
-  'MinecraftFont': require('./assets/fonts/Minecraft.ttf'),
+    'MinecraftFont': require('./assets/fonts/Minecraft.ttf'),
   });
 
   // Aguarda o carregamento da fonte antes de renderizar a interface

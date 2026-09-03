@@ -1,14 +1,6 @@
-//O componente mais importante! Exibe:
-//1. Ícone/Foto do bloco.
-//2. Nome do bloco.
-//3. $Qtd_{Necessária}$.
-//4. Campo de entrada (TextInput) para $Qtd_{Possuída}$.
-//5. Badge com o cálculo automático de $Qtd_{Faltante}$.
-
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function BlockItem({ name, imageUri, qtdRequired, qtdPossessed, onQtdChange, onDelete }) {
-  // Lógica interna visual
   const qtdFaltante = qtdRequired - qtdPossessed;
   const isCompleted = qtdFaltante <= 0;
 
@@ -20,7 +12,6 @@ export default function BlockItem({ name, imageUri, qtdRequired, qtdPossessed, o
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.detail}>Necessário: {qtdRequired}</Text>
         
-        {/* Destaque para blocos faltantes ou concluídos */}
         <Text style={[styles.detail, isCompleted ? styles.textSuccess : styles.textDanger]}>
           {isCompleted ? 'Concluído!' : `Faltam: ${qtdFaltante}`}
         </Text>
@@ -49,7 +40,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 12,
     marginVertical: 6,
-    marginHorizontal: 16,
     borderRadius: 8,
     alignItems: 'center',
     elevation: 2,
@@ -58,7 +48,7 @@ const styles = StyleSheet.create({
   },
   containerCompleted: {
     backgroundColor: '#f0fff0',
-    borderLeftColor: '#28a745', // Destaque verde quando concluído
+    borderLeftColor: '#28a745',
   },
   image: {
     width: 40,
@@ -73,6 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 4,
+    color: '#000',
   },
   detail: {
     fontSize: 12,
@@ -103,6 +94,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: '#fff',
     marginTop: 4,
+    color: '#000',
   },
   deleteButton: {
     backgroundColor: '#ff4d4d',
