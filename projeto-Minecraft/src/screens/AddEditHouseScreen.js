@@ -55,7 +55,7 @@ export default function AddEditHouseScreen({ route, navigation }) {
       />
 
       <CustomInput
-        label="ID da Categoria (1: Moderno, 2: Medieval, 3: Redstone)"
+        label="ID da Categoria (1: Moderno, 2: Medieval, 3: Japonesa)"
         value={catId}
         onChangeText={setCatId}
         placeholder="1"
