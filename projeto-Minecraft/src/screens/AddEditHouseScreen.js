@@ -1,6 +1,4 @@
-//Formulário para cadastrar uma nova casa ou alterar dados de uma existente
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, Alert } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
@@ -16,30 +14,48 @@ export default function AddEditHouseScreen({ route, navigation }) {
   const [catId, setCatId] = useState(house ? String(house.categoria_id) : categoryId ? String(categoryId) : '1');
   const [imageUri, setImageUri] = useState(house ? house.imagem_url : '');
 
-  // CREATE / UPDATE no SQLite
+  // Garante que a tabela 'construcoes' existe antes de fazer INSERT/UPDATE
+  useEffect(() => {
+    try {
+      db.execSync(`
+        CREATE TABLE IF NOT EXISTS construcoes (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          categoria_id INTEGER NOT NULL,
+          nome TEXT NOT NULL,
+          imagem_url TEXT
+        );
+      `);
+    } catch (error) {
+      console.error('Erro ao inicializar tabela de construcoes:', error);
+    }
+  }, []);
+
   const handleSave = () => {
     if (!name.trim()) {
-      Alert.alert('Erro', 'Informe o nome da casa.');
+      Alert.alert('Atenção', 'Informe o nome da construção.');
       return;
     }
+
+    const parsedCatId = parseInt(catId, 10) || 1;
 
     try {
       if (house) {
         // UPDATE
         db.runSync(
           'UPDATE construcoes SET nome = ?, categoria_id = ?, imagem_url = ? WHERE id = ?;',
-          [name, parseInt(catId, 10), imageUri, house.id]
+          [name.trim(), parsedCatId, imageUri.trim(), house.id]
         );
       } else {
         // CREATE
         db.runSync(
           'INSERT INTO construcoes (nome, categoria_id, imagem_url) VALUES (?, ?, ?);',
-          [name, parseInt(catId, 10), imageUri]
+          [name.trim(), parsedCatId, imageUri.trim()]
         );
       }
       navigation.goBack();
     } catch (error) {
       console.error('Erro ao salvar casa:', error);
+      Alert.alert('Erro', 'Não foi possível salvar a construção no banco de dados.');
     }
   };
 

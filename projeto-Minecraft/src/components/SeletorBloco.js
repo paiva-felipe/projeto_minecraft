@@ -4,13 +4,13 @@ import { View, Text, Image, Modal, FlatList, TouchableOpacity, StyleSheet } from
 // Lista de blocos disponíveis para escolha
 const LISTA_DE_BLOCOS = [
   { id: '1', name: 'Concreto Branco', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_oczNOaoW2mLqHShzZTxPeD__grSYq2EEcTgMNW5w0Q&s=10' },
-  { id: '2', name: 'Tábua de Carvalho', imageUri: 'https://minecraft.wiki/images/Oak_Planks.png' },
+  { id: '2', name: 'Tábua de Carvalho', imageUri: 'https://i.pinimg.com/736x/97/50/9b/97509bec67ebd94eda20494412653001.jpg' },
   { id: '3', name: 'Pedregulho', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuw8u5wl6nvdcn_vQ_foDW-GvFV0X4kroeVqrAmhwMOg&s=10' },
   { id: '4', name: 'Bloco de Quartzo', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqAA5zYPnODEVwxCW_tQ_-IK2k-VAwNIk2stM52WaMdw&s=10' },
   { id: '5', name: 'Tabua de Cerejeira', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGN4bJ5yPzHvpgGiVW1SnT7y1l1uGQGd-cd8La4bFOQ&s=10' },
-  { id: '6', name: 'Grama', imageUri: 'https://cdn.pixabay.com/photo/2016/11/11/14/49/minecraft-1816996_960_720.png' },
+  { id: '6', name: 'Grama', imageUri: 'https://i.pinimg.com/736x/ab/50/eb/ab50ebd1b5c6e701e4348bfa5d037e22.jpg' },
   { id: '7', name: 'Tijolo', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDjIB33yrshEExJ9bLBWoBkcs1gDjjoN9B4MA4Tzz_Ag&s' },
-  { id: '8', name: 'Terra', imageUri: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Dirt_JE2_BE2.png/revision/latest?cb=20200309195232' },
+  { id: '8', name: 'Terra', imageUri: 'https://i.pinimg.com/1200x/31/e7/6d/31e76ddd97af96d4fb9433a7b4299f7a.jpg' },
 ];
 
 export default function SeletorBloco({ blocoSelecionado, onSelect }) {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   placeholder: { color: '#888' },
   linhaItem: { flexDirection: 'row', alignItems: 'center' },
   foto: { width: 24, height: 24, marginRight: 10 },
-  textoItem: { color: '#000', fontWeight: 'bold' },
+  textoItem: { color: '#2f2e2e', fontWeight: 'bold' },
   fundoModal: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.6)',
