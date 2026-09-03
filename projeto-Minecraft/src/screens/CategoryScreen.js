@@ -30,9 +30,9 @@ export default function CategoryScreen({ navigation }) {
 
       // Se o banco estiver limpo, popula com estilos padrão
       if (result.length === 0) {
-        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Moderno', 'https://i.imgur.com/8Qp49Xm.jpg');");
-        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Medieval', 'https://i.imgur.com/L79pM4X.jpg');");
-        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Redstone', 'https://i.imgur.com/K3Z9jXp.jpg');");
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Moderno', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReICUGZ2Z3t2csGpuhxf74kK2E2Bj8qFf14w5UhORhoZIgcW-rloYpO3NC&s=10');");
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Medieval', 'https://i.pinimg.com/736x/16/37/97/1637978bb73a4a1d053fd1be033545ce.jpg');");
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Japonesa', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpAReRVn91-AN2I39EKK7LhEVsTCxt4V9TrWgBaIIe5gCAUgeen22uS7s&s=10');");
         result = db.getAllSync('SELECT * FROM categorias;');
       }
 
