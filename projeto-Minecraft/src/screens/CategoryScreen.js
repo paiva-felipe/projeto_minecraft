@@ -36,6 +36,7 @@ export default function CategoryScreen({ navigation }) {
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Steampunk', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXq3Hmd7rv5QaPBrhMPI6AErLoxPi0phYSnW6n6g7H19KRmtDpuIG89Ck&s=10')")
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Cyberpunk', 'https://i.pinimg.com/736x/da/03/e0/da03e0d8e71550736183407a97611bad.jpg')")
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Árabe', 'https://i.pinimg.com/736x/05/bc/37/05bc372f2164b64ce42ecfaf5bbb8ac7.jpg')")
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Viking', 'https://i.ytimg.com/vi/NuUnXDzc8cw/maxresdefault.jpg')")
         result = db.getAllSync('SELECT * FROM categorias;');
       }
 
@@ -75,10 +76,11 @@ export default function CategoryScreen({ navigation }) {
 
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="+ Cadastrar Nova Casa"
+          title="Favoritos"
           variant="primary"
-          onPress={() => navigation.navigate('AddEditHouseScreen')}
+          onPress={() => navigation.navigate('FavoritesScreen')}
         />
+
       </View>
     </View>
   );

@@ -9,6 +9,8 @@ import HouseListScreen from './src/screens/HouseListScreen';
 import HouseDetailScreen from './src/screens/HouseDetailScreen';
 import AddEditHouseScreen from './src/screens/AddEditHouseScreen';
 import AddEditBlockScreen from './src/screens/AddEditBlockScreen';
+import FavoritesScreen from './src/screens/FavoritesScreen'
+
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +64,13 @@ export default function App() {
           component={AddEditBlockScreen} 
           options={{ title: 'Material' }} 
         />
+        <Stack.Screen
+          name="FavoritesScreen"
+          component={FavoritesScreen}
+          options={{ title: 'Favoritos' }}
+        />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );
