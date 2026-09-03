@@ -34,8 +34,8 @@ export default function CategoryScreen({ navigation }) {
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Medieval', 'https://i.pinimg.com/736x/16/37/97/1637978bb73a4a1d053fd1be033545ce.jpg');");
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Japonesa', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpAReRVn91-AN2I39EKK7LhEVsTCxt4V9TrWgBaIIe5gCAUgeen22uS7s&s=10');");
         db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Steampunk', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXq3Hmd7rv5QaPBrhMPI6AErLoxPi0phYSnW6n6g7H19KRmtDpuIG89Ck&s=10')")
-        db.runSync("INSERT INTO categorias (nome, imagem url) VALUES ('Cyberpunk', 'https://i.pinimg.com/736x/da/03/e0/da03e0d8e71550736183407a97611bad.jpg')")
-        db.runSync("INSERT INTO categorias (nome, imagem url) VALUES ('Árabe', 'https://i.pinimg.com/736x/05/bc/37/05bc372f2164b64ce42ecfaf5bbb8ac7.jpg')")
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Cyberpunk', 'https://i.pinimg.com/736x/da/03/e0/da03e0d8e71550736183407a97611bad.jpg')")
+        db.runSync("INSERT INTO categorias (nome, imagem_url) VALUES ('Árabe', 'https://i.pinimg.com/736x/05/bc/37/05bc372f2164b64ce42ecfaf5bbb8ac7.jpg')")
         result = db.getAllSync('SELECT * FROM categorias;');
       }
 
