@@ -3,10 +3,14 @@ import { View, Text, Image, Modal, FlatList, TouchableOpacity, StyleSheet } from
 
 // Lista de blocos disponíveis para escolha
 const LISTA_DE_BLOCOS = [
-  { id: '1', name: 'Concreto Branco', imageUri: 'https://minecraft.wiki/images/White_Concrete.png' },
+  { id: '1', name: 'Concreto Branco', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_oczNOaoW2mLqHShzZTxPeD__grSYq2EEcTgMNW5w0Q&s=10' },
   { id: '2', name: 'Tábua de Carvalho', imageUri: 'https://minecraft.wiki/images/Oak_Planks.png' },
-  { id: '3', name: 'Pedregulho', imageUri: 'https://minecraft.wiki/images/Cobblestone.png' },
-  { id: '4', name: 'Bloco de Quartzo', imageUri: 'https://minecraft.wiki/images/Block_of_Quartz.png' },
+  { id: '3', name: 'Pedregulho', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuw8u5wl6nvdcn_vQ_foDW-GvFV0X4kroeVqrAmhwMOg&s=10' },
+  { id: '4', name: 'Bloco de Quartzo', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqAA5zYPnODEVwxCW_tQ_-IK2k-VAwNIk2stM52WaMdw&s=10' },
+  { id: '5', name: 'Tabua de Cerejeira', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGN4bJ5yPzHvpgGiVW1SnT7y1l1uGQGd-cd8La4bFOQ&s=10' },
+  { id: '6', name: 'Grama', imageUri: 'https://cdn.pixabay.com/photo/2016/11/11/14/49/minecraft-1816996_960_720.png' },
+  { id: '7', name: 'Tijolo', imageUri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDjIB33yrshEExJ9bLBWoBkcs1gDjjoN9B4MA4Tzz_Ag&s' },
+  { id: '8', name: 'Terra', imageUri: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Dirt_JE2_BE2.png/revision/latest?cb=20200309195232' },
 ];
 
 export default function SeletorBloco({ blocoSelecionado, onSelect }) {

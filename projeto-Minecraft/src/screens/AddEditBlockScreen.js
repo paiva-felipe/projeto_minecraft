@@ -1,7 +1,8 @@
-// Modal/Formulário para incluir ou modificar blocos na lista de um projeto
-
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, ScrollView, Alert, Modal, FlatList, TouchableOpacity, Image } from 'react-native';
+import { 
+  View, StyleSheet, Text, ScrollView, Alert, 
+  Modal, FlatList, TouchableOpacity, Image 
+} from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 import CustomInput from '../components/CustomInput';
@@ -29,17 +30,17 @@ export default function AddEditBlockScreen({ route, navigation }) {
   const [qtdRequired, setQtdRequired] = useState(block ? String(block.qtd_necessaria) : '');
   const [modalVisible, setModalVisible] = useState(false);
 
-  // Seleciona o bloco na lista e já salva o nome + URL da imagem nos estados
+  // Seleciona o bloco na lista e preenche os campos
   const handleSelectBlock = (selectedItem) => {
     setName(selectedItem.name);
     setImageUri(selectedItem.imageUri);
     setModalVisible(false);
   };
 
-  // CREATE / UPDATE no SQLite
+  // Salva no SQLite
   const handleSave = () => {
     if (!name.trim() || !qtdRequired) {
-      Alert.alert('Erro', 'Selecione o bloco e preencha a quantidade necessária.');
+      Alert.alert('Atenção', 'Selecione um bloco e preencha a quantidade necessária.');
       return;
     }
 
@@ -47,13 +48,11 @@ export default function AddEditBlockScreen({ route, navigation }) {
 
     try {
       if (block) {
-        // UPDATE
         db.runSync(
           'UPDATE blocos SET nome_bloco = ?, imagem_bloco = ?, qtd_necessaria = ? WHERE id = ?;',
           [name, imageUri, requiredNum, block.id]
         );
       } else {
-        // CREATE
         db.runSync(
           'INSERT INTO blocos (construcao_id, nome_bloco, imagem_bloco, qtd_necessaria, qtd_possuida) VALUES (?, ?, ?, ?, 0);',
           [houseId, name, imageUri, requiredNum]
@@ -66,46 +65,54 @@ export default function AddEditBlockScreen({ route, navigation }) {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>{block ? 'Editar Bloco' : 'Adicionar Novo Bloco'}</Text>
+    <View style={styles.mainWrapper}>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>{block ? 'Editar Bloco' : 'Adicionar Novo Bloco'}</Text>
 
-      {/* SELETOR DE BLOCO (Substitui os antigos campos de Nome e URL) */}
-      <Text style={styles.label}>Nome do Bloco</Text>
-      <TouchableOpacity 
-        style={styles.seletorField} 
-        onPress={() => setModalVisible(true)}
+        {/* CAMPO DO SELETOR */}
+        <Text style={styles.label}>Nome do Bloco</Text>
+        <TouchableOpacity 
+          style={styles.seletorField} 
+          activeOpacity={0.7}
+          onPress={() => setModalVisible(true)}
+        >
+          {name ? (
+            <View style={styles.selectedRow}>
+              {imageUri ? <Image source={{ uri: imageUri }} style={styles.selectedIcon} /> : null}
+              <Text style={styles.selectedText}>{name}</Text>
+            </View>
+          ) : (
+            <Text style={styles.placeholderText}>Clique para selecionar um bloco...</Text>
+          )}
+        </TouchableOpacity>
+
+        <CustomInput
+          label="Quantidade Necessária"
+          value={qtdRequired}
+          onChangeText={setQtdRequired}
+          placeholder="Ex: 128"
+          keyboardType="numeric"
+        />
+
+        <View style={styles.buttonContainer}>
+          <CustomButton title="Salvar Bloco" variant="primary" onPress={handleSave} />
+          <CustomButton title="Cancelar" variant="secondary" onPress={() => navigation.goBack()} />
+        </View>
+      </ScrollView>
+
+      {/* MODAL */}
+      <Modal 
+        visible={modalVisible} 
+        transparent={true} 
+        animationType="fade"
+        onRequestClose={() => setModalVisible(false)}
       >
-        {name ? (
-          <View style={styles.selectedRow}>
-            {imageUri ? <Image source={{ uri: imageUri }} style={styles.selectedIcon} /> : null}
-            <Text style={styles.selectedText}>{name}</Text>
-          </View>
-        ) : (
-          <Text style={styles.placeholderText}>Clique para selecionar um bloco...</Text>
-        )}
-      </TouchableOpacity>
-
-      <CustomInput
-        label="Quantidade Necessária"
-        value={qtdRequired}
-        onChangeText={setQtdRequired}
-        placeholder="Ex: 128"
-        keyboardType="numeric"
-      />
-
-      <View style={styles.buttonContainer}>
-        <CustomButton title="Salvar Bloco" variant="primary" onPress={handleSave} />
-        <CustomButton title="Cancelar" variant="secondary" onPress={() => navigation.goBack()} />
-      </View>
-
-      {/* MODAL DE SELEÇÃO */}
-      <Modal visible={modalVisible} transparent={true} animationType="fade">
         <TouchableOpacity 
           style={styles.modalOverlay} 
           activeOpacity={1} 
           onPress={() => setModalVisible(false)}
         >
-          <View style={styles.modalCard}>
+          <View style={styles.modalCard} onStartShouldSetResponder={() => true}>
             <Text style={styles.modalTitle}>Escolha um Bloco</Text>
             <FlatList
               data={LISTA_DE_BLOCOS}
@@ -123,12 +130,13 @@ export default function AddEditBlockScreen({ route, navigation }) {
           </View>
         </TouchableOpacity>
       </Modal>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#121212', padding: 16 },
+  mainWrapper: { flex: 1, backgroundColor: '#121212' },
+  container: { flex: 1, padding: 16 },
   title: { fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 20 },
   label: { color: '#ccc', fontSize: 14, marginBottom: 8 },
   seletorField: {
@@ -138,17 +146,18 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     marginBottom: 16,
     justifyContent: 'center',
+    minHeight: 50,
   },
   placeholderText: { color: '#888', fontSize: 16 },
   selectedRow: { flexDirection: 'row', alignItems: 'center' },
-  selectedIcon: { width: 24, height: 24, marginRight: 10 },
+  selectedIcon: { width: 26, height: 26, marginRight: 10 },
   selectedText: { color: '#000', fontSize: 16, fontWeight: 'bold' },
   buttonContainer: { marginTop: 20, gap: 10 },
 
-  // Estilos do Modal de seleção
+  // Estilos do Modal
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.7)',
+    backgroundColor: 'rgba(0,0,0,0.75)',
     justifyContent: 'center',
     padding: 20,
   },

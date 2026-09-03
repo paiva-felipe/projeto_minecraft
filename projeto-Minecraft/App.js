@@ -12,6 +12,7 @@ import AddEditBlockScreen from './src/screens/AddEditBlockScreen';
 import FavoritesScreen from './src/screens/FavoritesScreen'
 
 
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
